@@ -44,6 +44,7 @@ RUN chown -R www-data:www-data /var/www/html/plexWatch
 
 # Set config.php to under plexWatch
 RUN ln -s /plexWatch/config.php /var/www/html/plexWatch/config/config.php
+RUN ln -s /plexWatch/users.php /var/www/html/plexWatch/config/users.php
 
 # Manually set the apache environment variables in order to get apache to work immediately.
 RUN echo www-data > /etc/container_environment/APACHE_RUN_USER
