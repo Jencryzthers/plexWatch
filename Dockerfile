@@ -35,10 +35,11 @@ RUN rm -f /var/www/html/index.html
 ADD apache-config.conf /etc/apache2/sites-available/000-default.conf
 ADD ports.conf /etc/apache2/ports.conf
 
-# Install plexWebWatch v1.5.4.2
+# Install plexWebWatch v1.5.4.2 personnal dev
 RUN mkdir -p /var/www/html/plexWatch
-RUN wget -P /tmp/ https://github.com/ecleese/plexWatchWeb/archive/v1.5.4.2.tar.gz
-RUN tar -C /var/www/html/plexWatch -xvf /tmp/v1.5.4.2.tar.gz --strip-components 1
+
+RUN wget -P /tmp/ https://github.com/jencryzthers/plexWatchWeb/archive/dev.tar.gz
+RUN tar -C /var/www/html/plexWatch -xvf /tmp/dev.tar.gz --strip-components 1
 RUN chown -R www-data:www-data /var/www/html/plexWatch
 
 # Set config.php to under plexWatch
@@ -60,9 +61,9 @@ VOLUME /plexWatch
 VOLUME /log
 
 # Add edge.sh to execute during container startup
-RUN mkdir -p /etc/my_init.d
-ADD edge.sh /etc/my_init.d/edge.sh
-RUN chmod +x /etc/my_init.d/edge.sh
+#RUN mkdir -p /etc/my_init.d
+#ADD edge.sh /etc/my_init.d/edge.sh
+#RUN chmod +x /etc/my_init.d/edge.sh
 
 # Add apache to runit
 RUN mkdir /etc/service/apache
