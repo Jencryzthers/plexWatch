@@ -42,9 +42,9 @@ VOLUME /plexWatch
 RUN mkdir -p /var/www/html/plexWatch
 RUN mkdir -p /plexWatch/www
 
-RUN wget -P /tmp/ https://github.com/jencryzthers/plexWatchWeb/archive/dev.tar.gz
-RUN tar -C /plexWatch/www -xvf /tmp/dev.tar.gz --strip-components 1
-RUN chown -R www-data:www-data /plexWatch/www
+#RUN wget -P /tmp/ https://github.com/jencryzthers/plexWatchWeb/archive/dev.tar.gz
+#RUN tar -C /plexWatch/www -xvf /tmp/dev.tar.gz --strip-components 1
+#RUN chown -R www-data:www-data /plexWatch/www
 
 # Set config.php to under plexWatch
 RUN ln -s /plexWatch/www /var/www/html/plexWatch
