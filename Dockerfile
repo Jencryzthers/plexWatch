@@ -39,15 +39,10 @@ ADD ports.conf /etc/apache2/ports.conf
 VOLUME /plexWatch
 
 # Install plexWebWatch
-RUN mkdir -p /var/www/html/plexWatch
-RUN mkdir -p /plexWatch/www
-
-#RUN wget -P /tmp/ https://github.com/jencryzthers/plexWatchWeb/archive/dev.tar.gz
-#RUN tar -C /plexWatch/www -xvf /tmp/dev.tar.gz --strip-components 1
-#RUN chown -R www-data:www-data /plexWatch/www
+# RUN mkdir -p /var/www/html
 
 # Set config.php to under plexWatch
-RUN ln -s /plexWatch/www /var/www/html/plexWatch
+RUN ln -s /plexWatch /var/www/html
 
 # Manually set the apache environment variables in order to get apache to work immediately.
 RUN echo www-data > /etc/container_environment/APACHE_RUN_USER
