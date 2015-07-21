@@ -38,8 +38,9 @@ ADD ports.conf /etc/apache2/ports.conf
 # The plexWatch directory. Where the binary, config, and database is
 VOLUME /plexWatch
 
-# Install plexWebWatch v1.5.4.2 personnal dev
+# Install plexWebWatch
 RUN mkdir -p /var/www/html/plexWatch
+RUN mkdir -p /plexWatch/www
 
 RUN wget -P /tmp/ https://github.com/jencryzthers/plexWatchWeb/archive/dev.tar.gz
 RUN tar -C /plexWatch/www -xvf /tmp/dev.tar.gz --strip-components 1
